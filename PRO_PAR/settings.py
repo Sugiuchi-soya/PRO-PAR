@@ -70,8 +70,8 @@ DATABASES = {
         'NAME': 'PRO_PAR',
         # 'USER': os.environ.get(''),
         # 'PASSWORD': os.environ.get(''),
-        'USER': 'katakin',
-        'PASSWORD': 'losief6318',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': '127.0.0.1',
         # 'PORT': '5432',
     }
