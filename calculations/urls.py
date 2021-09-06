@@ -1,6 +1,10 @@
 from django.urls import path
 from .views import *
 
+app_name = "calculations"
+
 urlpatterns = [
-    path('', top),
+    path('', Top.as_view(), name="top"),
 ]
+
+
