@@ -6,9 +6,15 @@ from django.contrib.auth.models import AbstractUser
 
 
 
+class Area(models.Model):
+    area_name = models.CharField("エリア名", max_length=15)
+    def __str__(self):
+        return self.area_name
+
 class Parking(models.Model):
     name = models.CharField("パーキング名", max_length=50)
     image = models.ImageField("画像", blank=True)
+    area = models.ForeignKey(Area, on_delete=models.PROTECT, default=None)
     address = models.CharField("住所", max_length=100)
     distance = models.IntegerField("ゲストハウスからの距離")
     # max_digits(数字の最大桁数),decimal_places(少数の桁数)

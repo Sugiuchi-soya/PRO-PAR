@@ -1,0 +1,17 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+<h1>{{ title }}</h1>
+<ul>
+    {% for parking in parking_list %}
+    <li><img src="{{ parking.image.url }}" alt=""></li>
+    <li>{{ parking.name }}</li>
+    <li>{{ parking.address }}</li>
+    <li>{{ parking.distance }}</li>
+    <li>{{ parking.number_of_parking_spaces }}</li>
+    {% endfor %}
+</ul>
+    
+{% endblock %}
+
+

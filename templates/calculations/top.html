@@ -1,7 +1,44 @@
 {% extends "layouts/default.html" %}
 
-{% block title %}{{ title }}{% endblock %}
-
 {% block content %}
-    <h1>{{ title }}</h1>
+<header class="header text_center">
+    <div class="container">
+        <a href="{% url 'calculations:top' %}"><h2 class="title">PRO-PAR</h2></a>
+    </div>
+</header>
+
+<h1>{{ title }}</h1>
+
+<p>パーキングの利用時間を入力してください。</p>
+
+<form action="" class="form" method="post">
+    {% csrf_token %}
+    <table class="table text_center">
+        <tr class="row">
+            <th>
+                <label for="entry_time">IN</label>
+            </th>
+            <td>
+                <input class="entry_datetime_form" type="date" value="{{ today_date }}" name=entry_date required />
+            </td>
+            <td>
+                <input class="entry_datetime_form" type="time" value="{{ today_time }}" name="entry_time" id="entry_time" required />
+            </td>
+        </tr>
+        <tr class="row">
+            <th>
+                <label for="leaving_time">OUT</label>
+            </th>
+            <td>
+                <input class="leaving_datetime_form" type="date" name="leaving_date" value="{{ tomorrow_date }}" required />
+            </td>
+            <td>
+                <input class="leaving_datetime_form" type="time" name="leaving_time" value="08:00" step="1800" id="leaving_time" required />
+            </td>
+        </tr>
+
+    </table>
+    <input class="btn" type="submit" value="SEARCH »"/>
+</form>
+    
 {% endblock %}

@@ -1,12 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %}</title>
+    <title>PRO-PAR</title>
+    <meta name="description" content="コインパーキング料金を自動計算してくれるツールです。">
+    <link rel="stylesheet" href="{% static '/css/reset.css' %}" type="text/css" />
 </head>
 <body>
     {% block content %}{% endblock %}
+    
+    <footer class="footer text_center">
+        <div class="container">
+            <p class="copyright">&copy;2021 - Soya Sugiuchi</p>
+        </div>
+    </footer>
 </body>
 </html>
