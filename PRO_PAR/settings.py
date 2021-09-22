@@ -3,7 +3,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = False
+DEBUG = True
 
 try:
     from .local_settings import *
@@ -13,7 +13,7 @@ except ImportError:
     print("local_settingsのインポート失敗")
     pass
 
-if not DEBUG:
+if DEBUG:
     print("DEBUG=Fauseのため環境変数からAPIキーを取得")
     SECRET_KEY = os.environ.get("SECRET_KEY")
     GOOGLEMAPS_API_KEY = os.environ.get("GOOGLEMAPS_API_KEY")
@@ -66,14 +66,16 @@ WSGI_APPLICATION = 'PRO_PAR.wsgi.application'
 
 
 if not DEBUG:
+
+    import dj_database_url
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'PRO-PAR',
             'USER': os.environ.get("USER_NAME"),
             'PASSWORD': os.environ.get("PASSWORD"),
-            'HOST' : "",
-            'PORT' : "",
+            'HOST' : "ec2-54-83-137-206.compute-1.amazonaws.com",
+            'PORT' : "5432",
         }
     }
 
