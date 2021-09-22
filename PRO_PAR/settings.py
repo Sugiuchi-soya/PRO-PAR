@@ -64,18 +64,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PRO_PAR.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'PRO_PAR',
-        }
-    }
-
 if not DEBUG:
     DATABASES = {
         'default': {
@@ -83,8 +71,8 @@ if not DEBUG:
             'NAME': 'PRO-PAR',
             'USER': os.environ.get('USER_NAME'),
             'PASSWORD': os.environ.get('PASSWORD'),
-            'HOST' : "ec2-54-83-137-206.compute-1.amazonaws.com",
-            'PORT' : "5432",
+            'HOST' : "",
+            'PORT' : "",
         }
     }
 
