@@ -1,0 +1,39 @@
+.parking_wrapper {
+    display: block;
+    margin:0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width:90%;
+}
+.map {
+    width:100%;
+    height: 300px;
+}
+.txt-wrapper {
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: center;
+}
+.txt-wrapper li {
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: block;
+    margin:0 auto;
+    margin-bottom: 30px;
+    width:150px;
+    height: 40px;
+    border:solid 0.2rem #FBB03B;
+    border-radius:20px;
+    font-weight: bold;
+    background: #FBB03B;
+    color: white;
+    transition: background-color 0.3s;
+}
+.btn:hover {
+    color: #FBB03B;
+    background: white;
+    
+}

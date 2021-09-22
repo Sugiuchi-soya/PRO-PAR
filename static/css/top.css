@@ -1,0 +1,67 @@
+
+.parking_img {
+    width: 70%;
+    margin:0 auto;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* トップの説明文 */
+.txt_wrapper {
+    margin-bottom: 30px;
+}
+.main_txt {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+}
+.sub_txt {
+    font-size: 0.6rem;
+}
+
+/* フォームとラベルとボタン */
+.form {
+    width: 90%;
+    margin:0 auto;
+}
+.label {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.input_form_wrapper {
+    width:100%;
+    margin:0 auto;
+    margin-bottom: 20px;
+}
+.entry_datetime_form, .leaving_datetime_form {
+    display: inline-block;
+    width:70%;
+    margin:0 auto;
+    margin:5px 5px;
+    padding-left: 10px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    background: white;
+    border:solid 0.2rem white;
+    border-radius:20px;
+}
+.btn {
+    display: block;
+    margin:0 auto;
+    margin-bottom: 50px;
+    width:140px;
+    height: 40px;
+    border:solid 0.2rem #FBB03B;
+    border-radius:20px;
+    font-weight: bold;
+    background: #FBB03B;
+    color: white;
+    transition: background-color 0.3s;
+}
+.btn:hover {
+    color: #FBB03B;
+    background: white;
+    
+}

@@ -1,5 +1,6 @@
 from django.db import models,migrations
 from django.contrib.auth.models import AbstractUser
+from django.utils import timezone
 
 # class CustomUser(AbstractUser):
 #     pass
@@ -17,6 +18,7 @@ class Parking(models.Model):
     area = models.ForeignKey(Area, on_delete=models.PROTECT, default=None)
     address = models.CharField("住所", max_length=100)
     distance = models.IntegerField("ゲストハウスからの距離")
+    charge = models.IntegerField("利用料金", default=0)
     # max_digits(数字の最大桁数),decimal_places(少数の桁数)
     latitude = models.DecimalField("緯度", max_digits=22, decimal_places=16)
     longitude = models.DecimalField("経度", max_digits=22, decimal_places=16)

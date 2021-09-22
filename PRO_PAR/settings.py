@@ -12,7 +12,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--#426g7d&$3()q8q@#+t3r4rzg&5kv^q__t6g+-r7!yum6fo)q'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
+DEBUG = False
+
+try:
+    from .local_settings import *
+    GOOGLEMAPS_API_KEY = GOOGLEMAPS_API_KEY
+except ImportError:
+    print("local_settingsのインポート失敗")
+    pass
+
+
+
+if not DEBUG:
+    print("not DEBUG")
+    GOOGLEMAPS_API_KEY = os.environ["GOOGLEMAPS_API_KEY"]
+
+
 
 ALLOWED_HOSTS = ["pro-par.herokuapp.com","127.0.0.1"]
 
@@ -68,15 +84,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'PRO_PAR',
-        # 'USER': os.environ.get(''),
-        # 'PASSWORD': os.environ.get(''),
-        'USER': '',
-        'PASSWORD': '',
+        # 'USER': '',
+        # 'PASSWORD': '',
+        'USER': os.environ.get('vmchdukpqeyoow'),
+        'PASSWORD': os.environ.get('4045a4e34ba1916d273cd246408bf604c19c413f49162524a4e9dd2ccd8bfade'),
         # 'HOST': '127.0.0.1',
         # 'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -115,7 +130,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

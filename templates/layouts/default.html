@@ -8,13 +8,22 @@
     <title>PRO-PAR</title>
     <meta name="description" content="コインパーキング料金を自動計算してくれるツールです。">
     <link rel="stylesheet" href="{% static '/css/reset.css' %}" type="text/css" />
+    <link rel="stylesheet" href="{% static '/css/default.css' %}" type="text/css" />
+    {% block additional_css %}{% endblock %}
 </head>
 <body>
+    <header class="header txt_center">
+        <div class="container">
+            <a  class="title" href="{% url 'calculations:top' %}"><h1>PRO-PAR</h1></a>
+        </div>
+    </header>
+
     {% block content %}{% endblock %}
     
-    <footer class="footer text_center">
+    <footer class="footer txt_center">
         <div class="container">
-            <p class="copyright">&copy;2021 - Soya Sugiuchi</p>
+            <p class="copyright">&copy;2021 PRO-PAR</p>
+            <p>presented by はりまや橋ゲストハウス</p>
         </div>
     </footer>
 </body>

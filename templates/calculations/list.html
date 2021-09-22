@@ -1,17 +1,41 @@
 {% extends "layouts/default.html" %}
 
+{% block additional_css %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/list.css' %}" type="text/css" >
+{% endblock %}
+
 {% block content %}
-<h1>{{ title }}</h1>
-<ul>
-    {% for parking in parking_list %}
-    <li><img src="{{ parking.image.url }}" alt=""></li>
-    <li>{{ parking.name }}</li>
-    <li>{{ parking.address }}</li>
-    <li>{{ parking.distance }}</li>
-    <li>{{ parking.number_of_parking_spaces }}</li>
-    {% endfor %}
-</ul>
+
+<main>
+    <div class="container">
+        {% for parking in parkings %}
+        <div class="parking_wrapper">
+            
+            <div class="flex">
+                {% if parking.image %}
+                <img class="parking_img" src="{{ parking.image.url }}"  alt="">
+                {% endif %}
+                <ul class="txt-wrapper">
+                    <li>{{ parking.name }}</li>
+                    <li>ゲストハウスから{{ parking.distance }}m</li>
+                    <li>収容台数：{{ parking.number_of_parking_spaces }}台</li>
+                    <li class="price">利用料金 {{ parking.charge }}円</li>
+                </ul>
+            </div>
+            <form action="{% url 'calculations:map' id=parking.id %}" class="form" method="post">
+                {% csrf_token %}
+                <input class="btn" type="submit" value="MAP »"/>
+            </form>
+        </div>
+        {% endfor %}
+
+    </div>
+</main>
+
+
     
+
 {% endblock %}
 
 
