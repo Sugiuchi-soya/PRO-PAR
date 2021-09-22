@@ -65,9 +65,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'PRO_PAR.wsgi.application'
 
 
-if not DEBUG:
+if DEBUG:
 
-    import dj_database_url
+    # import dj_database_url
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
