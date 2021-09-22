@@ -22,8 +22,6 @@ except ImportError:
     print("local_settingsのインポート失敗")
     pass
 
-
-
 if not DEBUG:
     print("not DEBUG")
     GOOGLEMAPS_API_KEY = os.environ["GOOGLEMAPS_API_KEY"]
