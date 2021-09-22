@@ -11,9 +11,11 @@ html {
     max-width: 500px;
     margin:0 auto;
 }
+/* aタグの訪問済みの色をクリアする */
 a:visited{
     color: inherit;
 }
+
 li {
     list-style: none;
 }
@@ -22,17 +24,22 @@ li {
     text-align: center;
 }
 
-
+/* ヘッダーの共通設定 */
 .header {
     margin: 10px 0px;
 }
-
 .title {
     text-decoration: none;
     font-size: 1.6rem;
 }
 
+/* スマホ特有の装飾をクリアする */
+input {
+    -webkit-appearance: none;
+    border-radius: 0;
+}
 
+/* フッターの共通設定 */
 .footer {
     margin: 10px 0px;
     font-size: 0.7rem;
