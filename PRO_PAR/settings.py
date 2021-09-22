@@ -83,7 +83,8 @@ if not DEBUG:
             'NAME': 'PRO-PAR',
             'USER': os.environ.get('USER_NAME'),
             'PASSWORD': os.environ.get('PASSWORD'),
-            'HOST' : "5432"
+            'HOST' : "ec2-54-83-137-206.compute-1.amazonaws.com",
+            'PORT' : "5432",
         }
     }
 
