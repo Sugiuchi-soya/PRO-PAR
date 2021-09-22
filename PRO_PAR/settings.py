@@ -71,7 +71,7 @@ if DEBUG:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'PRO-PAR',
+            'NAME': 'dd3u9cmrk87n69',
             'USER': 'dsnupigqgwnepv',
             # 'USER': os.environ.get("USER_NAME"),
             'PASSWORD': '6ade67948288c04e0ad4b36b5209e3280899d1baa97cea101cfc168db390a5e0',
