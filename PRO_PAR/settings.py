@@ -65,19 +65,38 @@ TEMPLATES = [
 WSGI_APPLICATION = 'PRO_PAR.wsgi.application'
 
 if not DEBUG:
+    
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'PRO-PAR',
-            'USER': os.environ.get('USER_NAME'),
-            'PASSWORD': os.environ.get('PASSWORD'),
+            'USER': '',
+            'PASSWORD': '',
             'HOST' : "",
             'PORT' : "",
         }
     }
 
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
+
+    # db_from_env = dj_database_url.config()
+    # DATABASES = {
+    #     'default': dj_database_url.config()
+    # }
+
+
+    # DATABASES = {
+    #     'default': {
+    #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #         'NAME': 'PRO-PAR',
+    #         'USER': os.environ.get('USER_NAME'),
+    #         'PASSWORD': os.environ.get('PASSWORD'),
+    #         'HOST' : "",
+    #         'PORT' : "",
+    #     }
+    # }
+
+
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
