@@ -3,7 +3,7 @@ import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-DEBUG = True
+DEBUG = False
 
 try:
     from .local_settings import *
@@ -65,9 +65,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'PRO_PAR.wsgi.application'
 
 
-if DEBUG:
+if not DEBUG:
 
-    # import dj_database_url
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -78,24 +77,6 @@ if DEBUG:
             'PORT' : "5432",
         }
     }
-
-
-    # db_from_env = dj_database_url.config()
-    # DATABASES = {
-    #     'default': dj_database_url.config()
-    # }
-
-
-    # DATABASES = {
-    #     'default': {
-    #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #         'NAME': 'PRO-PAR',
-    #         'USER': os.environ.get('USER_NAME'),
-    #         'PASSWORD': os.environ.get('PASSWORD'),
-    #         'HOST' : "",
-    #         'PORT' : "",
-    #     }
-    # }
 
 
 
