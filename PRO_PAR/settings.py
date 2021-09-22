@@ -18,6 +18,16 @@ if not DEBUG:
     SECRET_KEY = os.environ.get("SECRET_KEY")
     GOOGLEMAPS_API_KEY = os.environ.get("GOOGLEMAPS_API_KEY")
 
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'dd3u9cmrk87n69',
+            'USER': os.environ.get("USER_NAME"),
+            'PASSWORD': os.environ.get("PASSWORD"),
+            'HOST' : "ec2-34-233-105-94.compute-1.amazonaws.com",
+            'PORT' : "5432",
+        }
+    }
 
 ALLOWED_HOSTS = ["pro-par.herokuapp.com","127.0.0.1"]
 
@@ -65,22 +75,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'PRO_PAR.wsgi.application'
 
 
-if not DEBUG:
-
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'dd3u9cmrk87n69',
-            'USER': os.environ.get("USER_NAME"),
-            'PASSWORD': os.environ.get("PASSWORD"),
-            'HOST' : "ec2-34-233-105-94.compute-1.amazonaws.com",
-            'PORT' : "5432",
-        }
-    }
-
-
-
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -96,9 +90,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
-# Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 LANGUAGE_CODE = 'ja'
 
