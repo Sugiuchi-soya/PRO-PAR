@@ -15,8 +15,8 @@ except ImportError:
 
 if not DEBUG:
     print("DEBUG=Fauseのため環境変数からAPIキーを取得")
-    SECRET_KEY = os.environ["SECRET_KEY"]
-    GOOGLEMAPS_API_KEY = os.environ["GOOGLEMAPS_API_KEY"]
+    SECRET_KEY = os.environ.get("SECRET_KEY")
+    GOOGLEMAPS_API_KEY = os.environ.get("GOOGLEMAPS_API_KEY")
 
 
 ALLOWED_HOSTS = ["pro-par.herokuapp.com","127.0.0.1"]
@@ -64,14 +64,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PRO_PAR.wsgi.application'
 
+
 if not DEBUG:
-    
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'PRO-PAR',
-            'USER': os.environ["USER_NAME"],
-            'PASSWORD': os.environ["PASSWORD"],
+            'USER': os.environ.get("USER_NAME"),
+            'PASSWORD': os.environ.get("PASSWORD"),
             'HOST' : "",
             'PORT' : "",
         }
