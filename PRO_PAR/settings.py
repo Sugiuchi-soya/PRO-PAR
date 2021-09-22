@@ -13,7 +13,7 @@ except ImportError:
     print("local_settingsのインポート失敗")
     pass
 
-if DEBUG:
+if not DEBUG:
     print("DEBUG=Fauseのため環境変数からAPIキーを取得")
     SECRET_KEY = os.environ.get("SECRET_KEY")
     GOOGLEMAPS_API_KEY = os.environ.get("GOOGLEMAPS_API_KEY")
