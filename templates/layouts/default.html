@@ -9,8 +9,20 @@
     <meta name="description" content="コインパーキング料金を自動計算してくれるツールです。">
     <link rel="stylesheet" href="{% static '/css/reset.css' %}" type="text/css" />
     <link rel="stylesheet" href="{% static '/css/default.css' %}" type="text/css" />
+    
     {% block additional_css %}{% endblock %}
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66672017-8"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-66672017-8');
+    </script>
 </head>
+
 <body>
     <header class="header txt_center">
         <div class="container">
