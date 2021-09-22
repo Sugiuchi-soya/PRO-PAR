@@ -1,6 +1,7 @@
 from pathlib import Path
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -23,9 +24,8 @@ except ImportError:
     pass
 
 if not DEBUG:
-    print("not DEBUG")
+    print("DEBUG=Fauseのため環境変数からAPIキーを取得")
     GOOGLEMAPS_API_KEY = os.environ["GOOGLEMAPS_API_KEY"]
-
 
 
 ALLOWED_HOSTS = ["pro-par.herokuapp.com","127.0.0.1"]
@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'PRO_PAR.urls'
@@ -129,7 +130,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
