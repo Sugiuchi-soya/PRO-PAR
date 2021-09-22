@@ -70,8 +70,8 @@ if not DEBUG:
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'PRO-PAR',
-            'USER': '',
-            'PASSWORD': '',
+            'USER': os.environ["USER_NAME"],
+            'PASSWORD': os.environ["PASSWORD"],
             'HOST' : "",
             'PORT' : "",
         }
