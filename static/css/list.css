@@ -1,8 +1,27 @@
 
-
-.header {
-    margin-bottom: 30px;
+.parking_top_img {
+    width: 70%;
+    margin:0 auto;
+    margin-bottom: 20px;
+    display: block;
 }
+
+
+.txt_wrapper {
+    margin:0 auto;
+    width:90%;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    border-bottom: solid 1px #666;
+    
+}
+
+.main_txt {
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
 
 /* パーキング情報リスト */
 .parking_wrapper {
@@ -23,7 +42,7 @@
     font-size: 0.9rem;
     display: block;
     margin:0 auto;
-    margin: 20px 20px;
+    margin: 15px 20px;
 }
 .txt-wrapper li {
     margin-bottom: 10px;

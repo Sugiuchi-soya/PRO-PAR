@@ -26,7 +26,7 @@ li {
 
 /* ヘッダーの共通設定 */
 .header {
-    margin: 10px 0px;
+    margin: 15px 0px;
 }
 .title {
     text-decoration: none;
@@ -41,7 +41,7 @@ input {
 
 /* フッターの共通設定 */
 .footer {
-    margin: 10px 0px;
+    margin: 30px 0px;
     font-size: 0.7rem;
 }
 .copyright {

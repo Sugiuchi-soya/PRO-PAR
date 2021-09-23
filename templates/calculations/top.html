@@ -9,7 +9,7 @@
 
 <main  class="container">
 
-    <img class="parking_img" src="{% static 'img/parking_img.png' %}"  alt="">
+    <img class="parking_top_img" src="{% static 'img/parking_img.png' %}"  alt="">
     <div class="txt_wrapper">
         <p class="main_txt txt_center">パーキングの利用時間を入力してください。</p>
         <p class="main_txt txt_center">日時をタップすると変更できます。</p>
@@ -29,7 +29,7 @@
             <input class="leaving_datetime_form" type="time" name="leaving_time" value="08:00" step="1800" id="leaving_time" required />
         </div>
         
-        <input class="btn" type="submit" value="料金を調べる »"/>
+        <input class="btn" type="submit" value="料金を計算する »"/>
     </form>
 </main> 
 {% endblock %}

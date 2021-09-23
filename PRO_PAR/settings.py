@@ -1,5 +1,8 @@
 from pathlib import Path
 import os
+# import cloudinary
+# import cloudinary.uploader
+# import cloudinary.api
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -13,8 +16,9 @@ except ImportError:
     print("local_settingsのインポート失敗")
     pass
 
+# 本番環境
 if not DEBUG:
-    print("DEBUG=Fauseのため環境変数からAPIキーを取得")
+    
     SECRET_KEY = os.environ.get("SECRET_KEY")
     GOOGLEMAPS_API_KEY = os.environ.get("GOOGLEMAPS_API_KEY")
 
@@ -41,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts.apps.AccountsConfig',
     'calculations.apps.CalculationsConfig'
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -115,7 +121,18 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # AUTH_USER_MODEL = "accounts.CustomUser"
+
+if not DEBUG:
+
+    # 画像を保存する外部ストレージの設定
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': os.environ.get("CLOUD_NAME"),
+        'API_KEY': os.environ.get("CLOUDINARY_API_KEY"),
+        'API_SECRET': os.environ.get("CLOUDINARY_API_SECRET"),
+    }
+
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
