@@ -5,11 +5,18 @@ from django.conf import settings
 
 
 def top(request):
-    Time = DateTime(today)
+
+    now = datetime.now()
+    today = now.today()
+    today_date = today.strftime("%Y-%m-%d")
+    today_time = today.strftime("%H:%M")
+    tomorrow = today + timedelta(days=1)
+    tomorrow_date = tomorrow.strftime("%Y-%m-%d")
+
     return render(request, "calculations/top.html", {
-        "today_date" : Time.get_today_date(),
-        "today_time" : Time.get_today_time(),
-        "tomorrow_date" : Time.get_tomorrow_date()
+        "today_date" : today_date,
+        "today_time" : today_time,
+        "tomorrow_date" : tomorrow_date
     })
 
 def list(request):
@@ -23,7 +30,7 @@ def list(request):
 
         entry = datetime.strptime(f"{entry_date} {entry_time}", "%Y-%m-%d %H:%M")
         leaving = datetime.strptime(f"{leaving_date} {leaving_time}", "%Y-%m-%d %H:%M")
-        usage_charge = calculate_ap_park_kochi_higashi(entry, leaving)
+        usage_charge = calc_ap_park_kochi_higashi(entry, leaving)
 
         for parking in parkings:
             parking.charge = usage_charge

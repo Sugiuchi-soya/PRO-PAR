@@ -2,25 +2,14 @@
 from datetime import *
 import math
 
+datetime_format = "%Y-%m-%d %H:%M"
+
 now = datetime.now()
 today = now.today()
-
-
-class DateTime:
-    def __init__(self, today):
-        self.today = today
-    def get_today_date(self):
-        today_date = self.today.strftime("%Y-%m-%d")
-        return today_date
-    def get_today_time(self):
-        today_time = self.today.strftime("%H:%M")
-        return today_time
-    def get_tomorrow_date(self):
-        tomorrow = self.today + timedelta(days=1)
-        tomorrow_date = tomorrow.strftime("%Y-%m-%d")
-        return tomorrow_date
-
-Time = DateTime(today)
+today_date = today.strftime("%Y-%m-%d")
+today_time = today.strftime("%H:%M")
+tomorrow = today + timedelta(days=1)
+tomorrow_date = tomorrow.strftime("%Y-%m-%d")
 
 # 利用時間と単位と基本料金を渡して小計を算出
 def get_subtotal(time, unit, basic_charge):
@@ -42,10 +31,10 @@ def get_usage_charge(minuend, subtrahend, unit, basic_charge, max_charge):
     usage_charge = apply_discount(subtotal, max_charge)
     return usage_charge
 
-datetime_format = "%Y-%m-%d %H:%M"
+
 
 # APパーク高知東の料金を計算
-def calculate_ap_park_kochi_higashi(entry, leaving):
+def calc_ap_park_kochi_higashi(entry, leaving):
 
     total_price = 0
     BASIC_CHARGE = 100
@@ -53,10 +42,10 @@ def calculate_ap_park_kochi_higashi(entry, leaving):
     NIGHTTIME_MAX_CHARGE = 600
     DAYTIME_UNIT = timedelta(minutes=20)
     NIGHTTIME_UNIT = timedelta(minutes=60)
-    DAYTIME_SERVICE_START = datetime.strptime(f"{Time.get_today_date()} 08:00", datetime_format)
-    DAYTIME_SERVICE_END = datetime.strptime(f"{Time.get_today_date()} 20:00", datetime_format)
-    DAYTIME_END = datetime.strptime(f"{Time.get_tomorrow_date()} 00:00", datetime_format)
-    TOMORROW_DAYTIME_START = datetime.strptime(f"{Time.get_tomorrow_date()} 08:00", datetime_format)
+    DAYTIME_SERVICE_START = datetime.strptime(f"{today_date} 08:00", datetime_format)
+    DAYTIME_SERVICE_END = datetime.strptime(f"{today_date} 20:00", datetime_format)
+    DAYTIME_END = datetime.strptime(f"{tomorrow_date} 00:00", datetime_format)
+    TOMORROW_DAYTIME_START = datetime.strptime(f"{tomorrow_date} 08:00", datetime_format)
 
     # 8時より前に入庫、8〜20時の間に出庫
     if entry < DAYTIME_SERVICE_START < leaving <= DAYTIME_SERVICE_END:
@@ -97,16 +86,37 @@ def calculate_ap_park_kochi_higashi(entry, leaving):
 
 
 
+def calc_okuruma_park_daisei_konyamati_1(entry, leaving):
 
+    total_price = 0
+    BASIC_CHARGE = 100
+    TIME_UNIT = timedelta(minutes=20)
+    NIGHTTIME_MAX_CHARGE = 600
+    NIGHTTIME_SERVICE_START = datetime.strptime(f"{today_date} 20:00", datetime_format)
+    NIGHTTIME_SERVICE_END = datetime.strptime(f"{tomorrow_date} 08:00", datetime_format)
 
+    # 20時までに出庫する
+    if leaving <= NIGHTTIME_SERVICE_START:
+        usage_time = leaving - entry
+        total_price = get_subtotal(usage_time,TIME_UNIT,BASIC_CHARGE)
 
-def calculate_okuruma_park_daisei_konyamati_1():
-    print()
+    elif entry < NIGHTTIME_SERVICE_START <= leaving <= NIGHTTIME_SERVICE_END:
+        usage_time1 = NIGHTTIME_SERVICE_START - entry
+        usage_charge1 = get_subtotal(usage_time1,TIME_UNIT,BASIC_CHARGE)
+        usage_charge2 = get_usage_charge(leaving, NIGHTTIME_SERVICE_START, TIME_UNIT, BASIC_CHARGE, NIGHTTIME_MAX_CHARGE)
+        total_price = usage_charge1 + usage_charge2
+    
+    elif NIGHTTIME_SERVICE_START <= entry < leaving <= NIGHTTIME_SERVICE_END:
+        total_price = get_usage_charge(leaving, entry, TIME_UNIT, BASIC_CHARGE, NIGHTTIME_MAX_CHARGE)
+
+    return total_price
+    
+
 
 
 def calculations():
-    calculate_ap_park_kochi_higashi()
-    calculate_okuruma_park_daisei_konyamati_1()
+    calc_ap_park_kochi_higashi()
+    calc_okuruma_park_daisei_konyamati_1()
 
 
 
