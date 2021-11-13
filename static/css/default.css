@@ -6,6 +6,7 @@ html {
     font-family: 'M PLUS 1p', sans-serif;
     background:#E3EEFA;
 }
+
 .container {
     min-width:320px;
     max-width: 500px;
@@ -47,3 +48,5 @@ input {
 .copyright {
     margin-bottom: 5px;
 }
+
+

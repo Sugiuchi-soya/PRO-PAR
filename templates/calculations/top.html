@@ -16,6 +16,10 @@
         <p class="sub_txt txt_center">※対応エリア：はりまや町、南はりまや町</p>
     </div>
 
+<script async
+    src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLEMAPS_API_KEY }}&callback=initMap">
+</script>
+
     <form action="{% url 'calculations:list' %}" class="form txt_center" method="post">
         {% csrf_token %}
         <p class="label"><label for="entry_time">IN</label></p>

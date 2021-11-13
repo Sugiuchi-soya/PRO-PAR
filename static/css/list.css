@@ -13,7 +13,6 @@
     margin-bottom: 30px;
     padding-bottom: 30px;
     border-bottom: solid 1px #666;
-    
 }
 
 .main_txt {
@@ -34,6 +33,7 @@
 .flex {
     display: flex;
 }
+
 .parking_img {
     width:45%;
 }
@@ -44,6 +44,7 @@
     margin:0 auto;
     margin: 15px 20px;
 }
+
 .txt-wrapper li {
     margin-bottom: 10px;
 }
@@ -69,3 +70,11 @@
     background: white;
     
 }
+
+
+@media screen and (min-width:480px){
+    p{
+        color: red;
+    }
+}
+

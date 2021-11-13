@@ -9,23 +9,19 @@
 
 <main>
     <div class="container">
-        <div class="parking_wrapper">
-            <iframe class="map" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed/v1/directions?origin={{ init_adress|urlencode }}&destination={{ parking.address|urlencode }}&key={{ GOOGLEMAPS_API_KEY }}"></iframe>
-            
-                <ul class="txt-wrapper">
-                    <li>{{ parking.name }}</li>
-                    <li>ゲストハウスから{{ parking.distance }}m</li>
-                    <li>収容台数：{{ parking.number_of_parking_spaces }}台</li>
-                    <li>利用料金 {{ parking.charge }}円</li>
-                </ul>
+        <div class="parking_wrapper">            
+            <iframe class="map" loading="lazy" allowfullscreen src="https://www.google.com/maps/embed?pb={{ parking.map_url}}"></iframe>
+            <ul class="txt-wrapper">
+                <li>{{ parking.name }}</li>
+                <li>ゲストハウスから{{ parking.distance }}m</li>
+                <li>収容台数：{{ parking.number_of_parking_spaces }}台</li>
+                <li>利用料金 {{ parking.charge }}円</li>
+            </ul>
         </div>
         <input class="btn" type="button" value="一覧に戻る »" onClick="location.href='/list/'"/>
         <input class="btn" type="button" value="計算をやり直す »" onClick="location.href='/'"/>
     </div>
 </main>
-
-
-    
 
 {% endblock %}
 
